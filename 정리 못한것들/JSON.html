@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    // // JSON => JavaScript script Notation (자바스크립트 객체 명명법)
+    // // XML을 죽이고? 데이터 전송포맷으로 자리 잡음
+    // // 객체지향 데이터베이스 출현의 핵심
+    // // 데이터 전송포맷으로 사용할땐 일반적으로 method는 안넣음
+
+    // var v_obj = {};     // new Object(); 
+    // v_obj.name = "ㅈㄴ듣기싫다";    // 속성 추가
+    // v_obj.sound = "잠와";   // 속성 추가
+    // v_obj.getName = function() { return this.name; };   // 메소드 추가
+    // delete (v_obj.name); // 속성 제거
+    // alert(v_obj.getName()); //? 
+
+
+    // // 자바스크립트에선 namespace를 만들 때 빈 객체 이용
+    // var System = {}; // 빈 객체 생성(속성이 없는 빈 객체)
+    // System.out = {};
+    // System.out.print = function(p_arg){
+    //     console.log(p_arg);
+    // }
+
+    // System.out.print("java nono")
+
+
+    /*  var v_ojg ={};
+     v_ojg["name"] = "오재경";   // 배열식 표기, 연관배열, 자바의 MAP
+     v_ojg["age"] = 26;
+     // v_ojg.0aaa="안돼";   // 변수명은 숫자로 시작할 수 없다. 특수문자는 _와 $만 사용 가능
+ 
+     v_ojg["0"] = "됨"
+     alert(v_ojg["name"]);
+     alert(v_ojg.name); */
+
+    /* var v_ojg = {
+        names:["박종환", "김강산", "김연수", "이문주",["이승연", "이준혁", "최승훈", "오재경"]],
+        sides:{
+            friends:["심성보", "길선주", "허지현", "윤민석"]
+        }
+    }
+    alert(v_ojg.names[4][2]);  //최승훈
+    alert(v_djg.sides.friends[0]); //심성보
+    */
+
+
+    var v_ojg = {};
+    v_ojg.names = ["박종환", "김강산", "김연수", "이문주", ["이승연", "이준혁", "최승훈", "오재경"]];
+    v_ojg.sides = {};
+    v_ojg.sides.friends = ["심성보", "길선주", "허지현", "윤민석"];
+
+    console.log(v_ojg);
+
+    alert(v_ojg.names[4][2]);  //최승훈
+    alert(v_djg.sides.friends[0]); //심성보
+
+
+
+
+</script>

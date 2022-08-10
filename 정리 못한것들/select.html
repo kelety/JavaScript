@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--선택상자 또는 콤보박스라고 부름-->
+    <!--mobile에서 multiple을 쓰지만 desktop은 사용안함-->
+    <select id="id_where" multiple size="6" onchange="f_where(this)">
+        <!--multiple size -> 여러개 선택-->
+        <option value="0" selected>어디사나요</option> // selected 선언시 먼저 출력됨
+        <option value="daejeon">대전</option>
+        <option value="sejong">세종</option>
+        <option value="newyork">뉴욕</option>
+        <option value="africa">아프리카</option>
+    </select>
+
+    <script>
+        function f_where(p_this) {
+            /*        alert("왜 바꿔요? 왜? Why?");
+            alert(p_this.value); // 선택된 value값이 나옴
+            //p_this는 id_where와 같음
+            // console.log(p_this.options[0]);
+            
+            var v_options = p_this.options;
+            for (var i = 0; i < v_options.length; i++) {
+                if (v_options[i].selected) {
+                    alert("당신이 사는 지역은 " + v_options[i].value + " 입니다.");
+                    return;
+                }
+            }
+            */
+            
+            var v_options = p_this.options;
+            var v_myselect = [];   // 빈배열
+            for (var i = 0; i < v_options.length; i++) {
+                if (v_options[i].selected) {
+                    v_myselect[v_myselect.length] = v_options[i].value;
+                }
+            }
+            alert("당신이 사는 지역은 " + v_myselect + " 입니다.");
+        }
+
+    </script>
+</body>
+
+</html>

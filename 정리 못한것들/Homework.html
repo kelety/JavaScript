@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #id_work {
+            color: yellow;
+            background-color: black;
+            font-size: 20px;
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<div id="id_work">
+    당신의 취미는 최대 3개까지 체크<br>
+    <!--4개째부턴 3개를 넘었다는 메시지 출력과 함께 출력 불가능
+    다른거 해제하고 체크하면 체크 가능-->
+</div>
+
+<body>
+    자바<input type="checkbox" name="hobby" value="java" onclick="f_hobby(this)">
+    자바스크립트<input type="checkbox" name="hobby" value="js" onclick="f_hobby(this)">
+    HTML<input type="checkbox" name="hobby" value="html" onclick="f_hobby(this)">
+    CSS<input type="checkbox" name="hobby" value="css" onclick="f_hobby(this)">
+    서버<input type="checkbox" name="hobby" value="server" onclick="f_hobby(this)">
+    <br>
+
+    <script>
+        // var v_ckboxs = document.getElementsByName("hobby");
+
+        var v_cnt = 0;
+        var v_max = 3;
+        function f_hobby(p_this) {
+            alert(p_this.value + " " + p_this.checked);
+            // alert(p_this.checked);  // 체크여부 확인
+            // p_this.checked = false; // 강제해제
+            // alert(v_ckboxs[p_this].value);
+
+            if (p_this.checked) {   // 해제에서 체크로 개수 증가
+                v_cnt++;
+            } else {
+                v_cnt--;
+            }
+            
+            if(v_cnt > v_max){
+                alert("3개 초과");
+                p_this.checked = false;     // 4번째 체크된거 강제 해제
+                v_cnt--;    // 4번째 체크된거 해제하고 개수에서 마이너스
+            }
+        }
+    </script>
+
+</body>
+
+</html>

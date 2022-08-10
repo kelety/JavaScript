@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .child {
+            font-size: 20px;
+            /* left: 100px;
+        top: 100px; */
+            border: 1px solid pink;
+            /* position: static;   /* default값 */
+            position: relative;
+            /*static에 의해 자리잡힌 후에 옮김*/
+            position: absolute;
+            /* 화면 왼쪽 모서리가 기준점이 되어버림, layer */
+        }
+
+        .csh {
+            left: 100px;
+            top: 100px;
+            background-color: yellowgreen;
+            z-index: 10;
+        }
+
+        .lsh {
+            left: 110px;
+            top: 110px;
+            background-color: bisque;
+            z-index: 20;
+        }
+
+        .ojg {
+            left: 120px;
+            top: 120px;
+            background-color: brown;
+            z-index: 9;
+        }
+
+        .ljh {
+            left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="child lsh">이승연</div>
+        <div class="child ljh">이준혁</div>
+        <div class="child csh">최승훈</div>
+        <div class="child ojg">오재경</div>
+    </div>
+    <input type="button" value="버튼버튼버튼" onclick="f_move()">
+    <script>
+        var v_ljh = document.querySelectorAll(".child")[1];
+        function f_move() {
+            if (!v_ljh.style.left) {  // 만약 inline style로 정의되어 있지 않다면
+                v_ljh.style.left = "200px";   // 초기값 스크립트로 세팅
+            }
+            v_ljh.style.left = parseInt(v_ljh.style.left) + 10 + "px";     // parseInt를 이용해 숫자로 변경
+            // alert("ppp" + v_ljh.style.left + "ppp");
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    // // 복사 (call by value)
+    // var v_roze = "로제";
+    // var v_jenni = v_roze;
+    // v_jenni = "제니";
+    // alert(v_roze);  //? 로제
+    // alert(v_jenni); //? 제니
+
+    // 참조 (call by reference)
+    // 객체(Object)는 참조방식으로 동작
+    var v_arr = ["로제", "제니", "지수", "리사"]; // 스크립트 배열
+    var v_arr2 = v_arr;
+    v_arr2[2] = "지현";
+    alert(v_arr[2]);  // 지현
+    alert(v_arr2[2]); // 지현
+
+    
+
+</script>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #id_ball {
+            /* transform: rotate(45deg); */
+            /* transform: rotatez(50deg); */
+            position: absolute;
+            top: 50px;
+            width: 100px;
+            height: 100px;
+            background-image: url("./images/coco.jpg");
+            background-size: 100px 100px;
+            border-radius: 50px 50px;
+            /* width height의 절반을 주면 동to the그to the라미*/
+        }
+
+        #id_bar {
+            position: absolute;
+            width: 300px;
+            height: 30px;
+            bottom: 50px;
+            /* 움직임을 구현할 때 left, top을 많이 쓰고 bottom, right는 잘 안쓴다 */
+            background-color: rgb(103, 255, 136);
+            border-radius: 20px 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="id_ball"></div>
+    <div id="id_bar"></div>
+    <input type="button" value="start" onclick="f_proxy()">
+    <input type="button" value="stop" id="id_stop">
+    <script>
+        // Proxy 패턴 : 객체는 기본적인 동작(속성 접근, 할당, 순회, 열거, 함수 호출 등)의 새로운 행동을 정의할 때 사용합니다.
+        // 이러한 변수를 flag 변수, switch 변수라고 부름
+        var isStart = false;
+        function f_proxy() {
+            if (!isStart) {
+                f_move();
+                isStart = true;
+            }
+        }
+
+        var v_stop = document.querySelector("#id_stop");
+        /* // 이벤트 등록법 2번
+        v_stop.onclick = function () {
+            alert("Stop 버튼");
+        }
+        // 덮어써버리기 (OverRiding)
+        v_stop.onclick = function () {
+            alert("앞의 버튼 문구를 덮어버린다")
+        } */
+
+        var v_timerID = setTimeout(f_move, 30);
+
+        // 이벤트 등록법 3번, 권장되는 최신버전, but 상황따라 골라씀
+        // 규모가 커서 한 객체의 이벤트가 개발자마다 하고픈 일이 다를 때 사용하면 편리함
+        v_stop.addEventListener("click", function(){
+            // alert("addEventListner를 이용한 이벤트");
+            clearTimeout(v_timerID);   // 타이머 멈추기 setTimeout과 단짝 이건 또 뭔 개소리고
+            isStart = false;    // 현재 움직이지 않는 상태를 표시(falg 변수_)
+        });
+        // 덮어씌우기X 개별로 작동됨
+        v_stop.addEventListener("click", function(){
+            // alert("앞의 문구과 별개로 작동");
+        });
+
+        // 자바스크립트에서 브라우저의 탭 하나 하나를 window라는 키워드로 부름
+        // 자바스크립트는 window 안에서 돌아간다. window 안에 URL이 바뀌면 이전껀 다(선언되었던 변수, 함수..) 사라진다.
+        var v_ball = document.querySelector("#id_ball");
+        var v_bar = document.querySelector("#id_bar");
+        var v_mvWidth = 5;
+        var v_mvHeight = 5;
+        var v_barMvWidth = 5;
+        console.log("whdth : " + window.innerWidth);     // 사용자가 보는 화면 넓이값 
+        console.log("height : " + window.innerHeight);    // 사용자가 보는 화면 높이값
+        function f_move() {
+            if (!v_ball.style.left) { // 해당 태그내에 해당 style정의가 안되어 있다면
+                v_ball.style.left = "0px";
+                v_ball.style.top = "50px";
+                v_bar.style.bottom = "50px";
+                v_bar.style.left = "30px";
+            }
+            // if (!v_bar.style.bottom) {
+            //     v_bar.style.bottom = "50px";
+            //     v_bar.style.left = "30px";
+            // }
+
+            v_ball.style.left = parseInt(v_ball.style.left) + v_mvWidth + "px";
+            v_ball.style.top = parseInt(v_ball.style.top) + v_mvHeight + "px";
+
+            var v_ballLeft = parseInt(v_ball.style.left);
+            var v_ballRight = parseInt(v_ball.style.left) + 100;
+            var v_ballTop = parseInt(v_ball.style.top);
+            var v_ballBottom = parseInt(v_ball.style.top) + 100;
+            var v_ballCenter = parseInt(v_ball.style.left) + 50;
+
+            var v_barBottom = parseInt(v_bar.style.bottom);
+            var v_barTop = parseInt(v_bar.style.bottom) + 30;
+            var v_barLeft = parseInt(v_bar.style.left);
+            var v_barRight = parseInt(v_bar.style.left) + 300;
+
+            // 오른쪽, 왼쪽 충돌
+            if (v_ballRight >= window.innerWidth || v_ballLeft <= 0) {
+                v_mvWidth = - v_mvWidth;        // 부호 반전
+            }
+            // 상하 충돌 구현
+            if (v_ballBottom >= window.innerHeight || v_ballTop <= 0) {
+                v_mvHeight = - v_mvHeight;
+            }
+
+            // 볼, 바 충돌
+            var chk1 = v_ballCenter >= v_barLeft;    // 비교연산자의 결과는 true/false
+            var chk2 = v_ballCenter <= v_barRight;
+            var chkResult = chk1 && chk2;
+            var v_add = 3;
+            if (v_ballBottom == window.innerHeight - v_barTop + v_add && chkResult) {
+                v_mvHeight = - v_mvHeight;
+            }
+            setTimeout(f_move, 30);  
+            // clearTimeout(v_timerID)
+        }
+
+        window.onkeydown = function () {
+            // alert(event.keyCode);   // 누른 키값 확인
+            // alert(event.key); 
+
+            var v_barLeft = parseInt(v_bar.style.left);
+            var v_barRight = parseInt(v_bar.style.left) + 300;
+
+            if (event.keyCode == 37) {    // 왼쪽 화살표
+                v_bar.style.left = v_barLeft - v_barMvWidth + "px";
+            }
+            if (event.keyCode == 39) {    // 오른쪽 화살표
+                v_bar.style.left = v_barLeft + v_barMvWidth + "px";
+            }
+            if (v_barLeft < 0) {
+                v_bar.style.left = v_barLeft + v_barMvWidth + "px";
+            }
+            if (v_barRight > window.innerWidth) {
+                v_bar.style.left = v_barLeft - v_barMvWidth + "px";
+            }
+        }
+
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+<!--과제 : 막대가 공 튕겨내면서 막대기는 얖옆 벽속으로 들어가면 안됨-->

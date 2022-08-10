@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #coco {
+            /* position:static 기본값은 안움직임, 브라우져 권한  */
+            position: relative;
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-image: url("../images/coco.jpg");
+            background-size: 100px 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="coco" onmousedown="f_down()" onmouseup="f_up()" onmousemove="f_move()" onmouseout="f_moveUp()">윤코코</div>
+    <script>
+        var v_coco = document.querySelector("#coco");
+        var v_click = false; // 현재 마우스 버튼 누른 상태
+        var v_cocoLeft, v_cocoTop;
+        var v_mouseLeft, v_mouseTop;
+
+        //초기값 설정
+        v_coco.style.left = "10px";
+        v_coco.style.top = "10px";
+
+        function f_down() {
+            if (!event.button) {
+                v_cocoLeft = parseInt(v_coco.style.left);
+                v_cocoTop = parseInt(v_coco.style.top);
+                v_mouseLeft = event.clientX;
+                v_mouseTop = event.clientY;
+                v_click = true;  // 눌린 상태
+            }
+        }
+
+        function f_up() {
+            v_click = false;   // 누른 버튼 놓으면 안 눌린 상태
+        }
+
+        function f_move() {
+            if (v_click) { // 버튼 누르고 있을 때
+                var v_mvX = event.clientX - v_mouseLeft;  // 마우스 x축 이동
+                var v_mvY = event.clientY - v_mouseTop;  // 마우스 y축 이동
+
+                v_coco.style.left = v_cocoLeft + v_mvX + "px";
+                v_coco.style.top = v_cocoTop + v_mvY + "px";
+                // console.log("마우스X : ", event.clientX);
+                // console.log("마우스Y : ", event.clientY);
+            }
+        }
+
+        function f_moveUp(){
+
+        }
+
+    </script>
+</body>
+
+</html>

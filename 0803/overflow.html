@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #id_parent {
+            position: relative;
+            left: 250px;
+            top: 200px;
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            border: 50px groove blue;
+            overflow: hidden;
+            /* overflow: scroll; */
+            /* overflow: auto; */
+        }
+
+        .child {
+            position: absolute;
+            width: 820px;
+            height: 200px;
+            border: 5px solid blue;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>어쩌구저쩌구</h1>
+    <div id="id_parent">
+        <div id="id_child1" class="child">
+            <img src=" ../images/데빌구.jpg">
+            <img src="../images/짱아.jpg">
+            <img src="../images/스폰지밥.jpg">
+            <img src="../images/뚱이.jpg">
+        </div>
+        <div id="id_child2" class="child">
+            <img src="../images/훈이.jpg">
+            <img src="../images/철수.jpg">
+            <img src="../images/유리.jpg">
+            <img src="../images/맹구.jpg">
+        </div>
+    </div>
+    <script>
+        var v_child1 = document.querySelector("#id_child1");
+        var v_child2 = document.querySelector("#id_child2");
+
+        var v_mvWidth = 10;
+        function f_move() {
+            v_child1.style.left = parseInt(v_child1.style.left) - v_mvWidth + "px";
+            v_child2.style.left = parseInt(v_child2.style.left) - v_mvWidth + "px";
+
+            if (parseInt(v_child2.style.left) == 0) {
+                v_child1.style.left = "820px";
+            }
+            if (parseInt(v_child1.style.left) == 0) {
+                v_child2.style.left = "820px";
+            }
+
+            setTimeout(f_move, 100);
+        }
+        // 페이지 로딩이 끝나면 자동으로 발생하는 이벤트
+        window.onload = function () {
+            if (!v_child1.style.left) { // 스트립트로 css 초기화 잊지말자
+                v_child1.style.left = "0px";
+                v_child2.style.left = "420px";
+            }
+            f_move();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    #id_disp {
+        width:80%;
+        height:70vh;
+        border:1px solid black;
+    }
+</style>
+</head>
+<body>
+    <h1>마우스 이벤토</h1>
+    <div id="id_disp" onmousedown="f_down()" onmouseup="f_up()" oncontextmenu="return f_contextmenu()"></div>
+<script>
+    var v_disp = document.querySelector("#id_disp");
+    function f_down(){
+        // alert(event.button);    // 어떤 버튼  0,1,2
+        // alert(event.which);     // 어떤 버튼  1,2,3
+        if(event.button == 0){
+        v_disp.innerHTML="<h1>왼쪽</h1>";
+        return; 
+       }
+       if(event.button == 1){
+        v_disp.innerHTML="<h1>가운데</h1>";
+        return; 
+       }
+       if(event.button == 2){
+        v_disp.innerHTML="<h1>오른쪽</h1>";
+        return; 
+       }
+    }
+
+    // contextmenu 안나오게 하는 함수 (마우스 우클릭)
+    // <div oncontextmenu="return f_contextmenu()"></div>     // return값 false
+    // <div oncontextmenu="f_contextmenu()"></div>            // return값 true
+    // <div oncontextmenu="return false"></div>               // 함수 선언 안해도 가능           
+    function f_contextmenu(){
+        return false;
+    }
+
+    var v_disp = document.querySelector("#id_disp");
+    v_disp.addEventListener("contextmenu",function(){
+        event.preventDefault();  // 원래 장착된 기능 막기
+    });
+
+    
+    // function f_up(){
+    //     alert("눌렀던 버튼 떼기");
+    // }
+
+</script>    
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- frameset, frame은 내팽겨졌지만, iframe은 아님
+    마이크로소프트가 IE에 처음 적용했고, 그 뒤 표준이 됨
+-->
+    <h1>html 페이지 안에 html페이지를 넣기</h1>
+    <input type="button" value="버튼" onclick="f_check()">
+    <input type="button" value="버튼" onclick="f_check2()">
+
+    <iframe id="id_frm" src="../0803/overflow.html" width="600" height="600" frameborder="2"></iframe>
+    <script>
+        var v_ifrm = document.querySelector("#id_frm");
+
+        function f_check() {
+            v_ifrm.src = "../0802/0802.유투브넣기.html";
+        }
+
+        function f_check2() {
+            console.log(v_ifrm.contentWindow);
+            console.log(v_ifrm.contentDocument);
+            var v_ifrmDoc = v_ifrm.contentDocument; //iframe안 html문서
+            v_ifrmDoc.querySelector("h1").innerHTML = "바뀜";
+
+            var v_childs = v_ifrmDoc.querySelector("#id_parent").children;
+            for (var i = 0; i < v_childs.length; i++) {
+                alert(v_childs[i].innerHTML);
+            }
+        }
+    </script>
+</body>
+
+</html>

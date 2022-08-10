@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DIV와 CSS의 만남</title>
+
+    <!--내부 스타일시트라고 부름-->
+    <style>
+        /* 요게 스타일시트의 주석*/
+        #sleepy{    /* 아이디는 # */
+            border: 50px;
+            border-style: solid;
+            border-color: rgb(134, 231, 89);
+        }
+        .class{ /* class속성으로 접근시 */
+            color:yellow;
+            font-size: 50px;
+            font-weight: bolder;
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <!--division(영역) 나누는데 쓰이는 태그, 곧 레이아웃을 잡을 떄 사용-->
+    <!--정말 많이 사용함 웹디자이너가-->
+    <!--태그 안에 직접 style을 주는 걸 inline style이라고 부름-->
+
+    <!-- w3c의 권장은 id는 페이지내에서 유일한 값을 주고 class는 여러번 나와도 상관없음-->
+    <div id="sleepy" style="border-color: black;">
+        아고 잠온다
+    </div>
+    <div class="class">
+        에고 잠이와
+    </div>
+</body>
+</html>

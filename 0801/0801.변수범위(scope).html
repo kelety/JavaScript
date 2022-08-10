@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 전역변수 -> 페이지 전체 어디에서든 접근할 수 있는 변수
+        // function 안에서 선언되었는가, 밖에서 선언되었는가가 관건
+        // var v_myName="김태훈"; // 전역변수
+        // function f_merong(){
+        //     /* var v_merong2 ="김태훈2"; // 지역변수
+        //     alert(v_myName);
+        //     alert(v_merong2); */
+
+        //     /* for(var i=10; i<111; i++){
+        //     }
+        //     alert(i); // function안에서 계속 살아있음 */
+        // }
+        // f_merong();
+
+
+        // 간략 계산기 함수(4칙 연산 각각 함수를 리턴)
+        function f_cal(p_operator){
+            if(p_operator == "+"){
+                return function(p_a, p_b){  // 함수 안의 함수 easy
+                    return p_a + p_b;
+                }
+            }
+            if(p_operator == "-"){
+                return function(p_a, p_b){
+                    return p_a - p_b;
+                }
+            }
+            if(p_operator == "*"){
+                return function(p_a, p_b){
+                    return p_a * p_b;
+                }
+            }
+            if(p_operator == "/"){
+                return function(p_a, p_b){
+                    return p_a / p_b;
+                }
+            }
+        }
+        alert(f_cal("+")(111,222));
+        alert(f_cal("-")(333,222));
+        alert(f_cal("*")(1,222));
+        alert(f_cal("/")(111,11));
+
+        // 간단한 계산 222+333+255
+        var v_plusResult = f_cal("+")(222, 333);
+        alert(f_cal("-")(v_plusResult,111));
+
+    </script>
+</body>
+</html>

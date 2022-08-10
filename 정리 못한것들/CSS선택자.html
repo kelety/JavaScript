@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Selector</title>
+    <style>
+        /* CSS선택자 */
+        /* 태그 선택자 */
+        div{    /* div 태그 전부 선택*/
+            color:aqua;
+            background-color: pink;
+        }
+        /* id 접근자 */
+        #ydk{
+            color: black;
+            font-size: 30px;
+        }
+        /* class 접근자 */
+        div.dy{     /* div태그이면서 class가 dy인 것만, 빈 공백 없으면 and로 연산 */
+            color: blue;
+            font-size: 50px;
+            background-color: magenta;
+        }
+        #merong.aaa{    /* id가 merong이면서 class가 aaa인것 */
+            font-size: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dy">마징가</div>
+    <div id="ydk">태권V</div>
+    <div>그랜다이저</div>
+    <p class="dy">이몸 p태그</p>
+    <div id="merong" class="aaa">손오공</div>
+    <div class="dy">완다?</div>
+</body>
+
+</html>

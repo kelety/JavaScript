@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<script>
+    //항상 언어 시작시 배우는건 출력문 hello world
+    // alert("스크립트 경고창에 출력"+"ㅇㅇ");
+    // console.log("개발자툴 console탭에 출력", "ㅇㅇ");
+    // 변수 선언과 데이터 타입
+    // 자바와 자바스크립트의 차이 : 정적언어 vs 동적언어
+    // 변수타입은 크게 기본(primitive)형과 참조(reference-객체)형이 있음
+    // 기본형은 number, string, boolean이 있고, 참조형은 배열과 json이 있다
+    // .을 찍을 수 없으면 기본형, .을 찍을 수 있으면 참조형
+    "use strict"; // 엄격모드 적용
+    var v_mascot = "허지현";    // 오른쪽 값에 따라 왼쪽 변수 데이터타입이 결정됨
+    // alert(typeof (v_mascot));    // string
+    var v_mascot1 = 100;
+    // alert(typeof (v_mascot1));   // number
+    var v_mascot2 = true;
+    var v_mascot3 = undefined;
+    var v_mascot4 = null;
+
+    // +, -, *, / 산술연산
+    // +(문자열 더하기랑 숫자 더하기 존재)
+    var v_sansu = "123" + 456;  // 자동으로 456이 "456"으로 형변환
+    // alert(v_sansu); //? 12345
+    var v_sansu2 = "456" - "123";   // 문자열 빼기는 없음, 자동으로 숫자로 형변환
+    // alert(v_sansu2); //? 333
+
+    var v_test = '272';
+    // alert(typeof(v_test)); // string
+    v_test = v_test - 0;
+    // alert(typeof(v_test)); // number
+    v_test = v_test + "";
+    // alert(typeof(v_test)); // string
+
+    // alert(parseInt("ㅁ27ㄴ2ㅁㅁㅁ")); // NaN -> Not a Number
+    // alert(parseInt("27ㄴ2ㅁㅁㅁ"));   // "27"만 출력함
+    
+
+
+</script>

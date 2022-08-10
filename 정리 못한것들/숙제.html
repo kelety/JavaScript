@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>디지털시계 만들기</title>
+    <style>
+        #id_clock {
+            text-align: center;
+            color: yellow;
+            background-color: black;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="id_clock" class="kgb">00:00:00</div>
+    <script>
+        //스크립트에서 현재 날짜 읽어오기
+        // setTimeout을 이용해서 1초마다 시계값이 업데이트 되도록 만들어보자
+        // 형식은 시간 24H 기준, 자릿수 두자리
+        // function clock() {
+        function clock() {
+            var v_today = new Date();   //자바에서 불러옴
+            var v_year = v_today.getFullYear();     // 년
+            var v_month = v_today.getMonth() + 1;       // 월  ???
+            var v_date = v_today.getDate();          // 일
+
+            var v_hour = v_today.getHours();        // 시
+            var v_min = v_today.getMinutes();       // 분
+            var v_secs = v_today.getSeconds();      // 초
+            id_clock.innerHTML = zero(v_hour) + ":" + zero(v_min) + ":" + zero(v_secs);
+
+        }
+
+        function zero(n) {
+            return (n < 10 ? '0' + n : n);
+        }
+
+        function startClock() {
+            clock();
+            setTimeout(startClock, 1000);
+        }
+
+        startClock();
+
+
+
+        // 재귀호출, 종료시점이 중요
+        // 1 ~ 특정숫자까지의 합
+        function f_sum(N){
+            if(N == 1){
+                return 1;
+            }
+            return N + f_sum(N-1);
+        }
+        // 먼저 확인
+        alert(f_sum(10));
+
+
+
+      /*  
+        // 관례상 id값을 직접 쓰는 것은 샘플코드 수준에서만 사용하길 권장함
+        // id_clock 이렇게 직접 쓰는건 비추
+        // 이와같은 코드는 요즘추세에 안맞음
+        var v_clock1 = document.getElementById("id_clock");    // id로 접근
+        console.log(v_clock1);
+        var v_clock2 = document.getElementsByClassName("kgb"); // class로 접근
+        console.log(v_clock2[0]);
+        var v_clock2 = document.getElementsByTagName("div");
+
+    
+        // 해당하는 것 중 처음 만나는 것 1개만 가져오기
+        var v_clock = document.querySelector(".kgb");
+        alert(v_clock.innerHTML);
+        // 해당 되는 모든것 모두 가져오기
+        var v_clock = document.querySelectorALL(".kgb");
+        alert(v_clock.[1].innerHTML); 
+        */
+    </script>
+</body>
+
+</html>

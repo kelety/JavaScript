@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../js/mylib.js"></script>
+</head>
+
+<body>
+    <h1>로또번호 만들기, 중복체크</h1>
+    <input type="button" value="번호생성" onclick="f_lotto()">
+    <div id="id_disp" style="border:1px solid pink"></div>
+    <script>
+        var v_disp = document.querySelector("#id_disp");
+        // 배열객체의 indexOf 메소드는 찾으면 해당 index, 못찾으면 -1 리턴
+        // 처음 결과를 얻기위해 짠 내용을 다시 깔끔하고 매끄럽게 정리하는 것을 Refactoring 이라함
+        function f_repeat(p_arr, p_val) {
+            for (var i = 0; i < p_arr.length; i++) {
+                if (p_arr[i] == p_val) {
+                    return i;  // 같은게있음
+                }
+            }
+            return -1;  // 같은게없음
+            // refactoring
+        }
+
+        function f_lotto() {
+            var v_lottoNums = []; // 번호받을 배열
+            for (; ;) { // 무한루프
+                var v_ranNum = f_ranNum(1, 45);
+
+                /*  // 중복 체크 발행산  번호가 배열에 이미 있는지(true) 없는지(false)
+                var v_isExist = false;
+                for (var i = 0; i < v_lottoNums.length; i++) {
+                    if (v_lottoNums[i] == v_ranNum) {
+                        v_isExist = true;
+                        break;
+                    }
+                }
+                // 이제 결정할 수 있다 넣을지 안 넣을지
+                if (!v_isExist) {
+                    v_lottoNums.push(v_ranNum);
+                }  */
+
+
+                // if (!f_repeat(v_lottoNums, v_ranNum)) {
+                //     v_lottoNums.push(v_ranNum);
+                // }
+                if (v_lottoNums.indexOf(v_ranNum) == -1) {
+                    v_lottoNums.push(v_ranNum);
+                }
+
+                //무한루프는 항상 빠져나갈 조건을걸어야한다
+                if (v_lottoNums.length == 6) {
+                    v_disp.innerHTML += "<h1>" + v_lottoNums + "</h1>";
+                    break;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

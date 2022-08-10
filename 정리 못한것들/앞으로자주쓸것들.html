@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./js/mylib.js "<h4></script>
+</head>
+<body>
+    <div id="id_disp"></div>
+    <script>
+        // 스크립트 타이머는 정확하지 않다(대강 맞긴함)
+        // setTimeout(함수포인터, 시간(밀리초), 매개변수1, 매개변수2, ...)
+
+    /*  function f_after(p_arg1, p_arg2){
+            alert("나 등장 " + p_arg1 + " : " + p_arg2);
+        }
+
+        setTimeout(f_after, 2000, "효정님", "잠이와?");   // 2초뒤에 f_after함수 출력
+        setTimeout(f_after(), 2000, "효정님", "잠이와?");   // 나 등장 undefined : undefined 출력됨 함수 바로출력하기때문
+   
+        // 앞에 실행문이 끝나야 뒷순서가 실행되는 것을 Synchronouse(동기식)라고 부른다.
+        // 앞에게 실행중인데 뒤에가 실행되는것을 ASynchronouse(비동기식)라고 부른다
+        alert("순서상 뒤에 실행");
+    */
+
+    
+    /* 
+        // var v_ranNumber = Math.random();  // 0< ? <1
+
+        // for(var i=1; i<=100; i++) {
+        //     var v_ranNumber = Math.random(); 
+        //     var v_ranNumber = Math.random();
+        //     id_disp.innerHTML += "<h4>" + v_ranNumber + "</h4>";
+        // }
+        
+        //     // 1~10까지 숫자 발생
+        // for(var i=1; i<=100; i++) {
+        //     // var v_ranNumber = Math.random();
+        //     var v_ranNumber = Math.ceil(Math.random() * 10);   // Math.ceil  올림
+        //     id_disp.innerHTML += "<h4>" + v_ranNumber + "</h4>";
+        // }
+        //     // 0~9까지 숫자 발생
+        // for(var i=1; i<=100; i++) {
+        //     // var v_ranNumber = Math.random();
+        //     var v_ranNumber = Math.floor(Math.random() * 10);   // Math.floor 내림
+        //     id_disp.innerHTML += "<h4>" + v_ranNumber + "</h4>";
+        // }
+
+        // // 65~100까지 숫자 발생
+        // for(var i=1; i<=100; i++) {
+        //     // var v_ranNumber = Math.random();
+        //     var v_ranNumber = Math.ceil(Math.random() * 35) + 65;   // Math.floor 내림
+        //     id_disp.innerHTML += "<h4>" + v_ranNumber + "</h4>";
+        // }
+     */    
+
+
+
+
+            // from ? to ? 랜덤 정수를 발생시키는 함수
+            for(var i=1; i<=100; i++) { 
+                id_disp.innerHTML += "<h4>" + f_ranNum(100,200) + "</h4>";
+            }
+            // function f_ranNum(p_start, p_end) {   // js폴더에 넣음
+            //         return Math.floor(Math.random() * (p_end - p_start + 1)) + p_start;
+            //     }
+
+
+
+
+   </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>열린 창</h1>
+    <input type="text" id="new_text" value="잠이와?" onkeydown="f_keyCheck()">
+    <input type="button" value="버튼" id="new_btn" onclick="f_check()">
+    <script>
+        var v_newTxt = document.querySelector("#new_text");
+        // 열린창에서 열어준 창을 의미하는 키워드 (opener)
+        // 곧 여기서는 opener가 오픈. html 파일을 열고 있는 window를 가리킨다
+        function f_check() {
+            opener.document.querySelector("#old_text").value = v_newTxt.value;
+        }
+        
+        function f_keyCheck() {
+            // alert(event.keyCode);
+            if(event.keyCode == 13){
+                f_check();
+            }
+        }
+        </script>
+</body>
+
+</html>

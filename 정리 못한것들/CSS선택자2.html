@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 전체 선택 */
+        * {
+            background-color: green;
+        }
+
+        /* 자식 선택자 > */
+        /* 스페이스는 자식포함해서 자식의 자식.. 그 자식들 모두 포함 */
+        #dg>.ggg {
+            background-color: indianred;
+            font-size: 50px;
+            border: 1px solid maroon;
+            /*축약기법*/
+            /* border-style: solid;
+            border-color: maroon;    안써도 됨 에~*/
+        }
+        div,p{  /* 여러개 선택은 , */
+             color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <!--들여쓰기(indentation)가 중요 안그럼 눈 빠짐? 눈아프다 그말이지
+    부모자식 관계가 잘 보이게 대강 잘 만들자 에~-->
+    <div id="dg">
+        <div class="ggg">자식일</div>
+        <div class="ggg">자식이
+            <div class="ggg">후손일</div>
+            <div class="ggg">후손이</div>
+            <div class="ggg">후손삼</div>
+        </div>
+        <div class="ggg">자식삼</div>
+    </div>
+    <p>아니아니아니아니아니아니아니아니아니아니아니아니아니아니아니아니아니아니아니아니</p>
+</body>
+
+</html>

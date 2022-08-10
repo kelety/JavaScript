@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            /* static을 만들어진 뒤 이동 */
+            position: relative;
+            width: 220px;
+            height: 340px;
+            left: 100px;
+            top: 100px;
+            border: 1px solid red;
+        }
+
+        .panel {
+            /* 부모(relative일떄) 왼쪽 모서리 기준으로 움직임 */
+            position: absolute;
+            border: 1px solid blue;
+            /* left:100px;
+            top:100px; */
+        }
+    </style>
+    <script>
+        var v_lIndex = 0; // 초기값
+        function f_initZindex(p_layers) {
+            for (var i = 0; i < p_layers.length; i++) {
+                p_layers[i].style.zIndex = 1;
+            }
+        }
+        function f_next() {
+            // var v_layers = document.querySelectorAll(".panel");
+            // var v_text = document.querySelect("#id_text");
+            f_initZindex(v_layers);
+            v_lIndex++;
+            if (v_lIndex == v_layers.length) {
+                v_lIndex = 0; // 초기값으로 되돌리기
+            }
+            // v_text.value=(v_lIndex + 1) + "/" + v_layers.length;
+            v_layers[v_lIndex].style.zIndex = 999;
+
+            setTimeout(f_next, 1000);
+        }
+        function f_prev() {
+            // var v_layers = document.querySelectorAll(".panel");
+            // var v_text = document.querySelect("#id_text");
+            f_initZindex(v_layers);
+            v_lIndex--;
+            if (v_lIndex == -1) {
+                v_lIndex = v_layers.length - 1; // 끝으로 되돌리기
+            }
+            v_text.value=(v_lIndex + 1) + "/" + v_layers.length;
+            v_layers[v_lIndex].style.zIndex = 1;
+        }
+        setTimeout(f_next, 1000);
+    </script>
+</head>
+
+<body>
+    <input type="button" value=" < " onclick="f_prev()">
+    <input type="text" id="id_text" value="1/3" size="5">
+    <input type="button" value=" > " onclick="f_next()">
+    <div class="wrapper">
+        <div class="panel" style="z-index:9">
+            <table border="1">
+                <tr>
+                    <td><a href="http://daum.net"><img src="./images/맹구.jpg" width="100" height="100"></a></td>
+                    <td><img src="./images/짱아.jpg" width="100" height="100"></td>
+                </tr>
+                <tr>
+                    <td><img src="./images/유리.jpg" width="100" height="100"></td>
+                    <td><img src="./images/훈이.jpg" width="100" height="100"></td>
+                </tr>
+                <tr>
+                    <td><img src="./images/데빌구.jpg" width="100" height="100"></td>
+                    <td><img src="./images/철수.jpg" width="100" height="100"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="panel" style="z-index:8">
+            <table border="1">
+                <tr>
+                    <td><img src="./images/징징이.jpg" width="100" height="100"></td>
+                    <td><img src="./images/뚱이.jpg" width="100" height="100"></td>
+                </tr>
+                <tr>
+                    <td><img src="./images/스폰지밥.jpg" width="100" height="100"></td>
+                    <td><img src="./images/징징이.jpg" width="100" height="100"></td>
+                </tr>
+                <tr>
+                    <td><img src="./images/뚱이.jpg" width="100" height="100"></td>
+                    <td><img src="./images/스폰지밥.jpg" width="100" height="100"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="panel" style="z-index:7">
+            <table border="1">
+                <tr>
+                    <td><img src="./images/coco.jpg" width="100" height="100"></td>
+                    <td><img src="./images/coco.jpg" width="100" height="100"></td>
+                </tr>
+                <tr>
+                    <td><img src="./images/coco.jpg" width="100" height="100"></td>
+                    <td><img src="./images/coco.jpg" width="100" height="100"></td>
+                </tr>
+                <tr>
+                    <td><img src="./images/coco.jpg" width="100" height="100"></td>
+                    <td><img src="./images/coco.jpg" width="100" height="100"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        //       시퀸스(순서)상
+        var v_layers = document.querySelectorAll(".panel");
+        var v_text = document.querySelect("#id_text");
+        v_text.value = 1 + "/" + v_layers.length;
+
+    </script>
+</body>
+
+</html>

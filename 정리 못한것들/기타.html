@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!--지원은 되지만 브라우져마다 모양이 달라 사용을 꺼리는 것들-->
+    <!--보안상 스크립트는 사용자가 선택해준 파일에만 접근할 수 있음-->
+    <input type="file" value="" multiple accept=".jpc,.jpeg,.png,.gif"> <!--서버에 파일 업로드시 사용-->
+    <input type="date" value="" onchange="f_date(this)">
+    <input type="color" value=""" onchange="f_color(this)">
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <!--그 외에도 많지만 브라우져별로 다른 모양들을 가져서 버려짐. 사내 업무용 프로그램으로 주로 사용-->
+<script>
+    function f_date(p_this){
+        alert("선택한 날짜는 " + p_this.value);
+    }
+
+    function f_color(p_this){
+        alert("선택한 색깔은 " + p_this.value);
+    }
+</script>
+
+</body>
+</html>

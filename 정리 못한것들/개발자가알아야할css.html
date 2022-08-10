@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" <title>Document</title>
+    <style>
+        #id_disp {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>개발자가 알아야할 어쩌구저쩌구 css</h1>
+    <div id="id_disp" style="display: block">
+        <h1>승연 웃음</h1>
+    </div>
+    <input type="button" value="누르기" onclick="f_click()">
+    <script>
+        var v_disp = document.querySelector("#id_disp");
+        var v_colors = ["blue", "red", "green", "black", "magenta", "pink"];
+        function f_click() {
+            /* 
+            // style 값 읽어오기
+            // alert(v_disp.style.backgroundColor);
+            // alert(v_disp.style.Color);
+
+            // style 값 쓰기
+            var v_ranColor = v_colors[Math.floor(Math.random() * v_colors.length)];
+            // v_disp.style.color=v_colors[Math.floor(Math.random()*v_colors.length)];
+            v_disp.style.backgroundColor = "blue";
+            // v_disp.style["background-color"]="magenta"; // 배열식 접근법
+
+            console.log(v_ranColor);
+            v_disp.style.color = v_ranColor;  // 개발자툴에서 변화를 눈으로 볼 수 있다
+            document.body.style.backgroundColor = v_ranColor;
+            setTimeout(f_click, 3000); // 재귀호출 
+            */
+
+
+
+            // 스크립트로 제어하는 스타일은 해당 태그의 inline style이다.
+            if(v_disp.style.display == "none"){
+                v_disp.style.display = "block";
+                return;
+            }
+            v_disp.style.display = "none";
+          
+        }
+    </script>
+</body>
+
+</html>

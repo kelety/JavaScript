@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    // 함수 매개변수(parameter)
+
+    p_args = function(){
+        alert("함수");
+    }
+
+    function f_dayoung(p_args){
+        alert("타입 : " + typeof(p_args) + ", 값 : " + p_args);
+        p_args();   // 함수 실행 callback함수라고 함. 단순히 뒤에 불리는 함수
+    }
+    
+    function f_a(){
+        alert("함수2");
+    }
+    // f_args(f_a());
+
+
+    f_dayoung("ㅎㅇ");  // 문자열 넘기기
+    f_dayoung(111);     // 숫자 넘기기
+    f_dayoung(["일","이","삼","사"]);   // 배열 넘기기
+    f_dayoung(function(){       // 함수 넘기기
+        alert("ㅂㅇ");
+    })
+    
+    
+    
+    // function f_dayoung(p_args){
+    //     alert("타입 : " + typeof(p_args) + ", 값 : " + p_args);
+    //     p_args();   // 함수 실행 callback함수라고 함. 단순히 뒤에 불리는 함수
+    // }
+    // f_dayoung(function(){       // 함수 넘기기
+    //     alert("ㅂㅇ");
+    // })
+
+
+    // 함수이름을 쓰는것과 함수를 실행후에 return값을 받는것을 구분
+</script>

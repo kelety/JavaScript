@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #id_files {
+            position: relative;
+            left: 30px;
+            top: 100px;
+            width: 520px;
+            height: 100px;
+            border: 3px solid aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <ol id="id_flist"></ol>
+    <div id="id_files" ondragover="f_dover()" ondrop="f_drop()">
+        이곳에 파일 넣기
+    </div>
+    <script>
+        var v_drop = document.querySelector('#id_files');
+        var v_fileList = document.querySelector("#id_flist");
+        function f_dover() {
+            event.preventDefault();
+        }
+
+        // dragover, drop 두 이벤트를 막아야만 브라우져가 자동으로 파일 여는걸 막을 수 있다
+        function f_readFile(p_file) {
+            var v_fileReader = new FileReader();
+            v_fileReader.onload = function () { // 다 읽으면 자동 이벤트발생
+                var v_img = document.createElement("img");
+                v_img.src = v_fileReader.result;
+                v_img.setAttribute("width", 100);
+                v_img.height = 100;
+                v_drop.appendChild(v_img); // 이걸 안하면 안보인단게 뭔말이고
+
+                var v_li = document.createElement("li");
+                v_li.innerHTML = p_file.name;
+                v_fileList.appendChild(v_li);
+            }
+            v_fileReader.readAsDataURL(p_file);
+        }
+
+        // 파일 5개까지만 가능하게 만들기
+        function f_drop() {
+            event.preventDefault();
+
+            console.log(event.dataTransfer.files);
+            var v_files = event.dataTransfer.files;
+            if (v_files.length >= 6) {
+                alert("5개 초과");
+                return;
+            }
+
+            v_drop.innerHTML = ""; //내용 클리어
+            v_fileList.innerHTML = ""; // 파일리스토 클리어
+            for (var i = 0; i < v_files.length; i++) {
+                f_readFile(v_files[i]);
+            }
+        }
+
+        // 화면 전체에 파일 복사가 안되도록 막음
+        window.addEventListener("dragover", function () {
+            event.preventDefault();
+        });
+        window.addEventListener("drop", function () {
+            event.preventDefault();
+        });
+
+    </script>
+</body>
+
+</html>

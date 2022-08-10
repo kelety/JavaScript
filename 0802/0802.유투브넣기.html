@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>유튜브넣기</h1>
+    <input type="button" value="다음영상" onclick="f_next()">
+    1<input type="radio" name="1" value="" onclick="f_sel(0)">
+    2<input type="radio" name="2" value="" onclick="f_sel(1)">
+    3<input type="radio" name="3" value="" onclick="f_sel(2)">
+    4<input type="radio" name="4" value="" onclick="f_sel(3)">
+
+    <select id="id_sel" onchange="f_sel2()">
+        <option value="-1" selected> 번호 </option>
+        <option value="0" > 1</option>
+        <option value="1" > 2</option>
+        <option value="2" > 3</option>
+        <option value="3" > 4</option>
+    </select>
+    <script>
+        var v_mvList = ["M5A78YO0WaY", "TpvQKVxmFuE", "2FBJdzOV-U0", "psegj4OjsQ0"];
+        var v_preUrl = "https://www.youtube.com/embed/";
+        var v_postUrl = "?autoplay=1&mute=1";
+        var v_index = 0;
+
+        function f_next() {
+            // iframe 내부 테스트
+            var v_ifrmDoc = v_iframe.contentWindow;
+            console.log("ck1 : ", v_iframe);
+            console.log("ck2 : ", v_iframe.contentWindow.document);
+            v_ifrmDoc.querySelector("#player").innerHTML="<h1>플레이어</h1>"
+
+            // iframe의 src 속성에 직접 값을 주기
+            v_iframe.src = v_preUrl + v_mvList[++v_index] + v_postUrl;
+            if (v_index == v_mvList.length - 1) {
+                v_index = -1;
+            }
+        }
+
+        var v_iframe;  // 전역변수로 설정
+        var v_select;
+        // 페이지 로딩후 초기화가 필요하다면 window.onload 
+        window.onload = function () {  // 페이지 로딩이 끝나면 자동으로 실행
+            v_iframe = document.querySelector("#Dayoung");
+            v_select = document.querySelector("#id_sel");
+        }
+        
+        function f_sel(p_index) {
+            v_iframe.src = v_preUrl + v_mvList[p_index] + v_postUrl;
+        }
+
+        function f_sel2() {
+            if(v_select.value == "-1"){
+                return;
+            }
+            v_iframe.src = v_preUrl + v_mvList[v_select.value] + v_postUrl;
+        }
+    </script>
+    <iframe id="Dayoung" width="1280" height="720" src="https://www.youtube.com/embed/M5A78YO0WaY?autoplay=1&mute=1"
+        title="[신병] 오해" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+    </iframe>
+</body>
+
+</html>

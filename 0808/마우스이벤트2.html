@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #coco {
+            /* position:static 기본값은 안움직임, 브라우져 권한  */
+            position:relative;
+            /* display: inline-block; */
+            display: grid;
+            width: 100px;
+            height: 100px;
+            background-image: url("../images/coco.jpg");
+            background-size: 100px 100px;
+        }
+
+        #id_fix {
+            position: fixed;
+            width:100%;
+            height: 20vh;
+            left: 0px;
+            top:20px;
+            background-color: black;
+            color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div id="id_fix"><h1>코코</h1></div> -->
+    <div id="coco">윤코코</div>
+    <!-- <div id="coco">윤코코</div>
+    <div id="coco">윤코코</div>
+    <div id="coco">윤코코</div>
+    <div id="coco">윤코코</div>
+    <div id="coco">윤코코</div>
+    <div id="coco">윤코코</div>
+    <div id="coco">윤코코</div>
+    <div id="coco">윤코코</div>
+    <div id="coco">윤코코</div>
+    <div id="coco">윤코코</div>
+    <div id="coco">윤코코</div>
+    <div id="coco">윤코코</div>
+    <div id="coco">윤코코</div>
+    <div id="coco">윤코코</div>
+    <div id="coco">윤코코</div>
+    <div id="coco">윤코코</div>
+    <div id="coco">윤코코</div>
+    <div id="coco">윤코코</div>
+    <h1>...</h1>
+    <h1>...</h1>
+    <h1>...</h1>
+    <h1>...</h1>
+    <h1>...</h1>
+    <h1>...</h1>
+    <h1>...</h1>
+    <h1>...</h1>
+    <h1>...</h1>
+    <h1>...</h1>
+    <h1>...</h1>
+    <h1>...</h1>
+    <h1>...</h1>
+    <h1>...</h1>
+    <h1>...</h1>
+    <h1>...</h1>
+    <h1>...</h1>
+    <h1>...</h1>
+    <h1>...</h1>
+    <h1>...</h1>
+    <h1>...</h1>
+    <h1>...</h1>
+    <h1>...</h1>
+    <h1>...</h1> -->
+    <script>
+        var v_kgs = document.querySelector("#coco");
+        window.addEventListener("mousemove", function () {
+            v_kgs.style.left = event.clientX + "px";
+            v_kgs.style.top = event.clientY + "px";
+            // console.log("마우스 x좌표:",event.clientX);
+            // console.log("마우스 y좌표:",event.clientY);
+            // console.log("==============================");
+        })
+    </script>
+</body>
+
+</html>

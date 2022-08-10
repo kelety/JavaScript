@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #id_modal {
+            display: none;
+            /* 모달 전체창은 항상 fixed로 고정 */
+            position: fixed;
+            width: 100%;
+            /* fixed에선 height도 % 적용 가능 */
+            height: 100%;
+            left: 0px;
+            top: 0px;
+            /* 투명도 0.5 */
+            background-color: rgba(244, 255, 183, 0.5);
+        }
+
+        #id_content {
+            position: relative;
+            left: 30%;
+            top: 30%;
+            border:1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- window.open에 제약사항이 걸리다 보니, div를 이용해서 새창인 것처럼 사용하는데 이것은 Modal이라 부름.
+        모달의 특징은 모달창을 닫지 않으면 모달 뒤에 있는 메인창을 클릭할 수 없다.-->
+
+    <img src="../images/뚱이.jpg"><br>
+    <input type="button" value="누구세요" onclick="f_modalOpen()">
+    <div id="id_modal">
+        <div id="id_content">
+            <h1>사랑해요</h1>
+            <input type="button" value="사랑해요" onclick="f_modalClose()">
+        </div>
+    </div>
+    <script>
+        var v_modal = document.querySelector("#id_modal");
+        function f_modalOpen() {
+            v_modal.style.display = "block";  // 보이게
+        }
+        
+        function f_modalClose() {
+            v_modal.style.display = "none";  // 보이게
+        }
+    </script>
+</body>
+
+</html>

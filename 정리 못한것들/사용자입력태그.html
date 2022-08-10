@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" id="f_source">
+
+<head>
+    <meta charset="UTF-8">
+    <title>사용자입력태그</title>
+    <style>
+        input {
+            color: yellow;
+            background-color: black;
+            font-size: 50px;
+        }
+
+        #id_disp {
+            width: 600px;
+            height: 400px;
+            border: 1px solid black;
+            color: white;
+            background-color: orangered;
+        }
+    </style>
+</head>
+
+<body>
+    <!--버튼만들기  onclick은 이벤트, f_click은 이벤트 핸들러-->
+    <!-- 속성 : type, value, onclick
+        각 태그는 element(한개의 객체라고 생각하면 됨???????)-->
+    <p id="id_ppp"> <!-- paragraph 문단 -->
+        <a href="http://naver.com">네이버</a><br>
+        <a href="http://daum.net">다음</a><br>
+    </p>
+    <div id="id_disp" onclick="f_divClick()">이건 또 머고</div>
+    <input type="button" value="소스보기" onclick="f_source()">
+    <input id="id_ydg" type="button" value="메롱시티" onclick="f_click()">
+    <script>
+
+        function f_source(){
+            alert(f_source.innerHTML);  // 너무 길어서 안보인다?? 잘 모름
+        }
+
+        function f_divClick() {
+            alert(document.head.innerHTML);
+            alert(id_ppp.innerHTML);
+            alert(id_disp.innerHTML);
+            // id_disp.innerHTML+="<h1>잠이와</h1>";  // 아래와 같은 코드
+            id_disp.innerHTML = id_disp.innerHTML + "<h1>잠이와</h1>";
+        }
+        // 스크립트에서 html문서를 가르키는 예약어는 document
+        function f_click() {
+            id_disp.innerHTML += "<h1>잠와</h1>";
+            console.log(id_ydg.id);
+            console.log(id_ydg.type);
+            console.log(id_ydg.value);
+            console.log(id_ydg.onclick);
+            id_ydg.value = "한번 더";
+
+
+            // alert("메롱");
+            // console.log(document.head.innerHTML);
+            // console.log(document.body);
+        }
+    </script>
+</body>
+
+</html>
