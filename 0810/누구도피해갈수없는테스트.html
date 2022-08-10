@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>엄칭 엄칭 중요!</h1>
+    <div id="id_disp"></div>
+    <script>
+
+        var grades = {
+            "ys001": "사장",
+            "ys002": "전무",
+            "ys003": "수석개발자",
+            "ys007": "천재개발자",
+            "ys000": "미확인"
+        }
+
+        var sawons = [
+            {
+                name: "김효정",
+                grade: "ys001"
+            },
+            {
+                name: "윤다영",
+                grade: "ys007"
+            },
+            {
+                name: "이동민",
+                grade: "ys000"
+            },
+            {
+                name: "박관우",
+                grade: "ys000"
+            },
+            {
+                name: "오재경",
+                grade: "ys002"
+            },
+            {
+                name: "김현석",
+                grade: "ys001"
+            },
+            {
+                name: "윤동기",
+                grade: "ys003"
+            },
+        ];
+        // 위 2개의 데이타를 가지고 id_disp에 테이블을 출력해 봅니다.
+        // 한번 자신감있게 해봅니다. 정말 중요한 문제(생각에 따라 엄청 쉬울수도..)
+
+        var v_table = "<table border=1>";
+        v_table += "<tr><th>순번</th><th>이름</th><th>직책</th></tr>";
+        for (var i = 0; i < sawons.length; i++) {
+            console.log(i, sawons[i], grades[sawons[i].grade]);
+            v_table += "<tr>";
+            v_table += "<td>" + (i + 1) + "</td>";
+            v_table += "<td>" + sawons[i].name + "</td>";
+            v_table += "<td>" + grades[sawons[i].grade] + "</td>";
+            v_table += "</tr>";
+        }
+
+        v_table += "</table>";
+        document.querySelector("#id_disp").innerHTML = v_table;
+
+    </script>
+</body>
+
+</html>

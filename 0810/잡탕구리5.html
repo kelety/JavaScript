@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .aaa {
+            color: pink;
+            background-color: black;
+        }
+    </style>
+    <link rel="stylesheet" href="../css/test.css">
+    <style>
+        .ccc {
+            color: ivory;
+            background-color: rgb(59, 51, 67);
+        }
+
+        .ddd {
+            font-size: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ddd">하이</div>
+    <input type="button" value="버튼" onclick="f_styleCheck()">
+    <script>
+        function f_styleCheck() {
+            alert(f_schSel(".ccc").color);
+            alert(f_schSel(".ccc").backgroundColor);
+            alert(f_schSel(".ddd").fontSize);
+            // var v_ss = document.styleSheets[2].cssRules[1];
+            //alert(v_ss.cssText);
+            //alert(v_ss.selectorText);
+            //v_ss.style.fontSize=parseInt(v_ss.style.fontSize)*2 + "em";
+        }
+
+        function f_schSel(p_selector) {
+            var v_styleSheets = document.styleSheets;
+            for (var i = 0; i < v_styleSheets.length; i++) {
+                var v_cssRules = v_styleSheets[i].cssRules;
+                for (var j = 0; j < v_cssRules.length; j++) {
+                    if (v_cssRules[j].selectorText == p_selector) {
+                        return v_cssRules[j].style;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

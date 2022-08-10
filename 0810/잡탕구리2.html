@@ -13,7 +13,27 @@
 </style>
 </head>
 <body>
-    <div id="wrapper" tabindex="0" onkeydown="f_keyDown()"></div>
+    <table border="1">
+        <tbody>
+            <tr>
+                <td>이름<input type="text" tabindex="1" value=""></td>
+                <td>별명<input type="text" tabindex="4" value=""></td>
+            </tr>
+            <tr>
+                <!-- -1은 focus를 안줌 -->
+                <td>나이<input type="text" tabindex="-1" value=""></td>
+                <td>주소<input type="text" tabindex="5" value=""></td>
+            </tr>
+            <tr>
+                <td>노인<input type="text" tabindex="3" autofocus title="어쩌구저쩌구" value=""></td>
+                <td>안노<input type="text" tabindex="6" value=""></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- focus를 받을 수 없는 element에 focus를 받을 있게 함-->
+    <div id="wrapper" tabindex="0" contenteditable onkeydown="f_keyDown()">
+        텍스트박스처럼 사용
+    </div>
 <script>
     function f_keyDown(){
         alert(event.keyCode + " : " + event.key);
