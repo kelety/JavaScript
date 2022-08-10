@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    #wrapper {
+        width:200px;
+        height:200px;
+        border:3px solid pink;
+    }
+</style>
+</head>
+<body>
+    <div id="wrapper" tabindex="0" onkeydown="f_keyDown()"></div>
+<script>
+    function f_keyDown(){
+        alert(event.keyCode + " : " + event.key);
+    }
+</script>    
+</body>
+</html>

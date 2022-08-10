@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <video id="my_mv" src="../비디오/에스파_도깨비불_댓글모음.mp4" width="400" controlslist="nodownload">
+        <track src="./sample-en.vtt" kind="subtitles" srclang="en" label="English"></track>
+        <track src="./sample-ko.vtt" kind="subtitles" srclang="ko" label="한국어" default></track>
+    </video>
+    <div>
+        <div>
+            <h3>비디오 컨트롤 막대기?</h3>
+            <button onclick="f_pause()">포즈</button>
+            <button onclick="f_play()">플레이</button>
+            <button onclick="f_quick()">빠르게</button>
+            <button onclick="f_next()">다음영상</button>
+        </div>
+    </div>
+    <input type="button" value="다음비디오" onclick="f_click()">
+    <script>
+        var v_video = document.querySelector("#my_mv");
+        var v_index =1;
+
+        function f_click() {
+            v_video.src = "../비디오/작전타임.mp4";
+            v_video.muted = true;
+            v_video.autoplay = true;
+            v_video.controls = true;
+            // v_video.style.transform ="rotate(90deg)";  
+        }
+
+        v_video.onended = function () {
+            // 영상이 끝나면 자동으로 다음 영상으로 전환
+            v_video.src = "../비디오/에스파_도깨비불_댓글모음.mp4";
+        }
+
+        function f_pause() {
+            v_video.pause();
+        }
+
+        function f_play() {
+            v_video.play();
+        }
+
+        function f_quick() {
+            //누를때 마다 2배
+            alert(v_video.playbackRate); //기본값 확인
+            v_video.playbackRate = v_video.playbackRate * 2;
+        }
+
+        function f_next(){
+        v_index++;
+        v_video.src = "./videos/movie"+ v_index + ".mp4"
+   }
+    </script>
+</body>
+
+</html>
