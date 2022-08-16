@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    // html5 발표시 html4와 크게 달라진 점으로 부각되었던 것이 멀티비디어(video/audio),
+    // 로컬 저장소(offline 상황대응), 브라우져 밖의 카메라, 마이크, 스피커 등등 주변기기에 접속(WebRTC라 부름)
+    // RTC -> RealTime Communication
+    // 필수 조건이 보안상 https 프로토콜이어야만 함
+    // (openSSL을 쓰면 셀프인증서를 만들 수 있음) -> 하지만 localhost에서만 사용가능
+
+    // sessionStorage  localStorage와  사용법이 같다
+    // 단지 데이터가 자동으로 사라짐(브라우져에서 나가거나, 페이지가 벗어나면)
+    // 문자열만 저장이 가능
+
+    var v_ydy = [1, 2, 3, 4, 5];
+    // alert(v_ydy.toString());//?
+
+    localStorage.setItem("키값1", "aaa"); // 쓰기
+    localStorage.setItem("키값2", "bbb");
+    localStorage.setItem("키값3", "ccc");
+    localStorage.setItem("키값4", "dddd");  // 키값이 이미 있는 것과 같으면 update
+    // localStorage.setItem("테스트", ["1","2","3"]); // 객체를 저장할려고 시도
+    localStorage.setItem("테스트", JSON.stringify(["1", "2", "3"])); 
+    // setItem 메소드는 다른 언어 사용자의 편의를 위해 만듬
+    localStorage.ydy = "ydy";
+    localStorage.setItem("dongmin", JSON.stringify({name : "동민", nickName : "태권브이"})); 
+
+    // object <=> string, localStorage는 문자열만 저장 가능
+    var v_dongmin = JSON.parse(localStorage.getItem("dongmin"));
+    alert(v_dongmin.nickName);
+
+
+    // alert(localStorage.getItem("키값2"));   // 읽기
+    // alert(localStorage.length);
+    // alert(localStorage.key(3));  // key값(index번호) 출력
+
+    // for(var v_key in localStorage){ // 객체 속성(key) 읽을떄 사용
+    //     alert(v_key); 
+    // }
+
+    // localStorage.removeItem("키값3");  // 지우기
+    // localStorage.clear(); // 모두 지우기, 사용자는 브라우져에서 마우스 오른쪽 버튼으로도 지우기 가능
+
+    /*
+    var v_question = localStorage.getItem("테스트");
+    v_question = JSON.parse(v_question);    // 문자열을 객체로, 여기선 배열로
+    alert(typeof(v_question));
+    alert(v_question[2]);
+    */
+
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    // JSON 유틸        객체 <-> 문자열
+
+    // 객체
+    var v_minjung = {name : "민정", corona : "확진"}
+    alert(typeof(v_minjung));
+    console.log(v_minjung);
+    // 객체(배열도 포함, JSON만 객체라는 생각은 편견)를 문자열로 변환
+
+
+    // 문자열
+    var v_str = JSON.stringify(v_minjung);  // 자바에선 serialize 
+    console.log(v_str);
+    alert(typeof(v_minjung));
+
+
+    // 문자열을 객체로
+    var v_againObj = JSON.parse(v_str); 
+    // 단 문자열의 표현이 정확히 객체 표현 문법에 어긋남이 없어야 함
+    console.log(v_againObj);
+
+
+    // 문자열
+    var v_hjStr = "{'name':'김효정','bestFriend':'윤다영','bestEnemy':'이동민'}";
+    console.log(v_hjStr);
+    
+
+    // 현 상태에서의 해결책 바깥쪽을 '로 안쪽을 " 으로 바꿈
+    var v_hjStr2 = '{"name":"김효정","bestFriend":"윤다영","bestEnemy":"이동민"}';
+    JSON.parse(v_hjStr2);
+    var v_hjObj=JSON.parse(v_hjStr2);
+    console.log(v_hjStr2);
+
+
+    // 진짜 배열로 바꾸기?
+    var v_arrStr = '["김태훈","안하용",100]';
+    var v_arrObj = JSON.parse(v_arrStr);
+    console.log(v_arrObj[2]);
+    console.log(v_arrObj[0]);
+
+</script>
