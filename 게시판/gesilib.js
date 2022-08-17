@@ -38,13 +38,11 @@ request.getParameterValues=function(p_name){  // name을 넘기면 value를 리�
    encodeURIComponent   decodeURIComponent  최근버전(권장)
    짝맞춰 사용하는 것이 중요(일부 글자 인코딩이 서로 다름)
 */
-alert(getParameter("nm_title"));
-alert(getParameter("nm_writer"));
-alert(getParameter("nm_content"));
-alert(getParameter("nm_cat"))
-// ----
+// alert(getParameter("nm_title"));
+// alert(getParameter("nm_writer"));
+// alert(getParameter("nm_content"));
+// alert(getParameter("nm_cat"))
+// alert(getParameterValues("nm_cat"))
 // alert(decodeURIComponent(getParameter("nm_title")));
 // alert(decodeURIComponent(getParameter("nm_writer")));
 // alert(decodeURIComponent(getParameter("nm_content")));
-
-alert(getParameterValues("nm_cat"))
