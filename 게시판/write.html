@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>trash garbage 게시판</title>
+</head>
+
+<body>
+    <h1>글쓰기</h1>
+    <hr>
+    <form id="id_wform" action="write_action.html" method="get">
+        <table border="1">
+            <tr>
+                <td>글제목</td>
+                <td><input type="text" name="nm_title" value="" required></td>
+            </tr>
+            <tr>
+                <td>글쓰기</td>
+                <td><input type="text" name="nm_writer" value="" required></td>
+            </tr>
+            <tr>
+                <td>글쓰니 수준</td>
+                <td>
+                    <select name="nm_level">
+                        <option value="chunjae">응애</option>
+                        <option value="sujae">쓰레기</option>
+                        <option value="youngjae">버러지</option>
+                        <option value="roze" selected>로제</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>카테고리</td>
+                <td>
+                    JS<input type="checkbox" name="nm_cat" value="js">
+                    HTML<input type="checkbox" name="nm_cat" value="html">
+                    CSS<input type="checkbox" name="nm_cat" value="css">
+                    JSP<input type="checkbox" name="nm_cat" value="jsp">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    내용<br>
+                    <textarea name="nm_content" rows="10" cols="50" required></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="글 올리기">
+                    <input type="reset" value="다시쓰기">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        var v_form = document.querySelector("#id_wform");
+        var v_ckBoxs = document.querySelectorAll("input[name=nm_cat]");
+        v_form.onsubmit = function(){
+            event.preventDefault();     // 전송 막기
+            var v_cnt = 0;
+            for(var i = 0; i < v_ckBoxs.length; i++) {  // 체크박스 체크 확인
+                if(v_ckBoxs[i].checked) {
+                    v_cnt++;
+                }
+            }
+            if(v_cnt == 0){
+                alert("카테고리 체크 필수");
+            }
+            v_form.submit();    // 전송
+        }
+    </script>
+</body>
+
+</html>

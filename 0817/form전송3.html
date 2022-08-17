@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <form id="id_form1" action="일단확인.html" method="get">
+        아이디<input type="text" name="n_id" value="id" required><br>
+        암호<input type="password" name="n_pw" value="password" required><br>
+        <input type="submit" value ="전송"> 
+    </form>
+
+    <script>
+        var v_form = document.querySelector('#id_form1');
+        v_form.addEventListener('submit', function(){
+            // return false;  // form태그에 onsubmit에 return값을 받는 함수를 선언해야하지만 그러지 못함
+            event.preventDefault(); // form태그가 가진 전송기능을 막음
+            
+            if(v_form.elements[0].value == "roze"){
+                v_form.submit(); // form태그(객체)의 submit 메소드
+            } else{
+                v_form.reset();
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <form action="일단확인.html" method="get" onsubmit="return f_submit()">
+        아이디<input type="text" name="n_id" value="id" required><br>
+        암호<input type="password" name="n_pw" value="password" required><br>
+        <button>버?튼</button> <!-- button 태그는 form 태그 사이에 들어가면 자동으로 type이 submit으로 변경됨-->
+        <input type="button" value="버튼"> <!-- 전송 안됨 그냥 버튼-->
+        <input type="submit" value ="전송"> <!-- 전송 됨 -->
+    </form>
+
+    <script>
+        function f_submit(){
+            if(document.forms[0].n_id.value == "roze"){
+                return true;
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>
