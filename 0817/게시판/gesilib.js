@@ -1,3 +1,6 @@
+
+var v_tblName = "gesiTB";
+
 var request = {}; // name-space용 빈객체  // 사용자 요청(request)을 담은 객체
 
 request.getParameter = function(p_name) {  // name을 넘기면 value을 리턴

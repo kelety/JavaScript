@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script src="./gesilib.js"></script>
+<script>
+    // 지우긴 정말 간단, 글넘버만 필요
+    var v_gnum = request.getParameter("nm_gnum");
+    // localStorage 글 읽어오깅
+    var v_dataArr = JSON.parse(localStorage.getItem(v_tblName));
+
+    for (var i = 0; i < v_dataArr.length; i++) {
+        if (v_dataArr[i].pid == v_gnum) {
+            v_dataArr.splice(i, 1); // index 번호 i부터 1개를 지우기
+            break;
+        }
+    }
+
+    localStorage.setItem(v_tblName, JSON.stringify(v_dataArr));
+    alert("잘 지웠어용!!, 술제 몰라용!");
+    location.replace("list.html");
+
+</script>
